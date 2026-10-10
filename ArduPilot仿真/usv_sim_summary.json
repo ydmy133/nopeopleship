@@ -1,0 +1,545 @@
+{
+  "controller": "STM32F405RGT6 User/boat synced",
+  "source": "E:\\无人船\\STM32F405RGT6\\User\\boat",
+  "hull_from": "E:\\zhudian\\STM32F405RGT6\\sim",
+  "origin_sim": {
+    "lat": 30.58,
+    "lon": 1.3
+  },
+  "origin_real": {
+    "lat": 22.9774823,
+    "lon": 113.3772654,
+    "note": "专用静止段 GNSS 均值。仿真把相对位移映到 1.3°E，避免 float32 经度失锁。"
+  },
+  "env_from_still": {
+    "still_drift_e": 0.0321,
+    "still_drift_n": -0.0435,
+    "still_yaw_dps": -0.0016,
+    "current_e": 0.0713,
+    "current_n": -0.0965,
+    "wind_e": 0.0594,
+    "wind_n": -0.0804,
+    "wind_yaw_dps": 0.6,
+    "note": "方向来自静止段净位移；量级用湖测压测量（流 0.12 / 风 0.10 m/s）。实测静止漂移约 0.05 m/s，不够压测顶流。"
+  },
+  "sense_real": {
+    "n": 282,
+    "duration_s": 319.4,
+    "still_vs_mean_m": {
+      "n": 14,
+      "p50": 0.417,
+      "p95": 0.702,
+      "max": 0.867
+    },
+    "tape_radius_m": {
+      "n": 282,
+      "p50": 0.101,
+      "p95": 0.48,
+      "max": 0.867
+    },
+    "fly_count": 10,
+    "note": "位置残差：静止段相对均值，运动段相对 6 s 平滑。航向/陀螺残差只用静止段，避免把转动船头当罗盘误差。"
+  },
+  "params": {
+    "WP_RADIUS": 2.0,
+    "LOIT_RADIUS": 2.0,
+    "HULL_SPEED_MAX": 1.0,
+    "note": "参数与 boat_config.h 一致：不倒车，到点不稳泊，定速开环。"
+  },
+  "perfect_ideal": [
+    {
+      "key": "navigate",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 1.242,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": -0.31,
+        "final_true_n": -1.2,
+        "final_heading_deg": 13.9,
+        "mean_u_meas": 0.456,
+        "u_des": 0.7,
+        "final_true_dist_m": 1.242,
+        "time_to_arrive_s": 122.5,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 1.95,
+        "hold_rms_m": 1.263,
+        "true_in_2m_frac": 1.0,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上点到点: 贴航线前进，进入 WP_RADIUS=2 m 后停推力并切手动，不稳泊。有流时到点后会漂。",
+        "最近 1.24 m，到点时刻 1.95 m，结束时 1.24 m。"
+      ]
+    },
+    {
+      "key": "fixed_point",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.0,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": 0.0,
+        "final_true_n": 0.0,
+        "final_heading_deg": 270.0,
+        "mean_u_meas": 0.0,
+        "u_des": 0.7,
+        "final_true_dist_m": 0.0,
+        "time_to_arrive_s": 0.0,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 0.0,
+        "hold_rms_m": 0.0,
+        "true_in_2m_frac": 1.0,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上定点稳泊: 圈内收油，圈外船头朝锚点前进顶回，R=2 m，不倒车。",
+        "真实在 2 m 内 100%、3 m 内 100%，RMS=0.00 m。"
+      ]
+    },
+    {
+      "key": "cruise_speed",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 15.63,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": -15.63,
+        "final_true_n": 0.0,
+        "final_heading_deg": 90.0,
+        "mean_u_meas": 0.487,
+        "u_des": 0.5,
+        "final_true_dist_m": 15.63,
+        "heading_drift_deg": 0.0,
+        "east_run_m": 24.4,
+        "along_run_m": 24.4,
+        "mean_move_cmd": 50.0,
+        "mean_abs_steer": 0.0
+      },
+      "notes": [
+        "船上定速巡航: 滑条 50 直接出油门，转向固定 0，不根据对地速度改 PWM。",
+        "平均油门 50.0，平均|舵| 0.00，平均对地速度 0.49 m/s（有流时允许偏离），航向漂移 0.0°。"
+      ]
+    },
+    {
+      "key": "cruise_dir",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.0,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": 0.0,
+        "final_true_n": 44.55,
+        "final_heading_deg": 0.0,
+        "mean_u_meas": 0.682,
+        "u_des": 0.7,
+        "final_true_dist_m": 44.581,
+        "mean_abs_crosstrack_m": 0.0,
+        "net_along_m": 54.6,
+        "heading_rmse_deg": 0.0
+      },
+      "notes": [
+        "船上定向巡航: 锁切入艏向，速度走速度环。不贴地面直线，有侧流时位置可以漂。",
+        "沿航向净进 54.6 m，平均横向 0.00 m，航向 RMSE 0.0°。"
+      ]
+    }
+  ],
+  "perfect_current_wind": [
+    {
+      "key": "navigate",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 1.044,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": 6.24,
+        "final_true_n": 1.31,
+        "final_heading_deg": 326.52,
+        "mean_u_meas": 0.437,
+        "u_des": 0.7,
+        "final_true_dist_m": 6.381,
+        "time_to_arrive_s": 122.4,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 1.98,
+        "hold_rms_m": 3.592,
+        "true_in_2m_frac": 0.351,
+        "true_in_3m_frac": 0.51
+      },
+      "notes": [
+        "船上点到点: 贴航线前进，进入 WP_RADIUS=2 m 后停推力并切手动，不稳泊。有流时到点后会漂。",
+        "最近 1.04 m，到点时刻 1.98 m，结束时 6.38 m。"
+      ]
+    },
+    {
+      "key": "fixed_point",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.005,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": 1.94,
+        "final_true_n": 0.53,
+        "final_heading_deg": 254.74,
+        "mean_u_meas": -0.021,
+        "u_des": 0.7,
+        "final_true_dist_m": 2.008,
+        "time_to_arrive_s": 0.0,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 0.005,
+        "hold_rms_m": 2.011,
+        "true_in_2m_frac": 0.099,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上定点稳泊: 圈内收油，圈外船头朝锚点前进顶回，R=2 m，不倒车。",
+        "真实在 2 m 内 10%、3 m 内 100%，RMS=2.01 m。"
+      ]
+    },
+    {
+      "key": "cruise_speed",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 20.566,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": -9.91,
+        "final_true_n": 18.37,
+        "final_heading_deg": 64.99,
+        "mean_u_meas": 0.669,
+        "u_des": 0.5,
+        "final_true_dist_m": 20.873,
+        "heading_drift_deg": 25.01,
+        "east_run_m": 30.1,
+        "along_run_m": 30.1,
+        "mean_move_cmd": 50.0,
+        "mean_abs_steer": 0.0
+      },
+      "notes": [
+        "船上定速巡航: 滑条 50 直接出油门，转向固定 0，不根据对地速度改 PWM。",
+        "平均油门 50.0，平均|舵| 0.00，平均对地速度 0.67 m/s（有流时允许偏离），航向漂移 25.0°。"
+      ]
+    },
+    {
+      "key": "cruise_dir",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 4.639,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": 25.59,
+        "final_true_n": 44.86,
+        "final_heading_deg": 0.0,
+        "mean_u_meas": 0.686,
+        "u_des": 0.7,
+        "final_true_dist_m": 51.68,
+        "mean_abs_crosstrack_m": 12.9,
+        "net_along_m": 54.9,
+        "heading_rmse_deg": 0.04
+      },
+      "notes": [
+        "船上定向巡航: 锁切入艏向，速度走速度环。不贴地面直线，有侧流时位置可以漂。",
+        "沿航向净进 54.9 m，平均横向 12.90 m，航向 RMSE 0.0°。"
+      ]
+    },
+    {
+      "key": "fixed_point_decay",
+      "passed": true,
+      "metrics": {
+        "sense": "perfect",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.005,
+        "fly_count": 0,
+        "filter_lag_rms_m": 0.0,
+        "final_true_e": 1.91,
+        "final_true_n": 0.52,
+        "final_heading_deg": 254.69,
+        "mean_u_meas": -0.013,
+        "u_des": 0.7,
+        "final_true_dist_m": 1.977,
+        "time_to_arrive_s": 0.0,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 0.005,
+        "hold_rms_m": 2.019,
+        "true_in_2m_frac": 0.282,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上定点稳泊: 圈内收油，圈外船头朝锚点前进顶回，R=2 m，不倒车。",
+        "真实在 2 m 内 28%、3 m 内 100%，RMS=2.02 m。"
+      ]
+    }
+  ],
+  "real_gnss_ideal": [
+    {
+      "key": "navigate",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 1.228,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.205,
+        "final_true_e": 0.5,
+        "final_true_n": 1.12,
+        "final_heading_deg": 208.31,
+        "mean_u_meas": 0.209,
+        "u_des": 0.7,
+        "final_true_dist_m": 1.228,
+        "time_to_arrive_s": 56.4,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 1.935,
+        "hold_rms_m": 1.238,
+        "true_in_2m_frac": 1.0,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上点到点: 贴航线前进，进入 WP_RADIUS=2 m 后停推力并切手动，不稳泊。有流时到点后会漂。",
+        "最近 1.23 m，到点时刻 1.93 m，结束时 1.23 m。"
+      ]
+    },
+    {
+      "key": "fixed_point",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.0,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.257,
+        "final_true_e": 0.0,
+        "final_true_n": 0.0,
+        "final_heading_deg": 303.12,
+        "mean_u_meas": 0.0,
+        "u_des": 0.7,
+        "final_true_dist_m": 0.0,
+        "time_to_arrive_s": 0.0,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 0.0,
+        "hold_rms_m": 0.0,
+        "true_in_2m_frac": 1.0,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上定点稳泊: 圈内收油，圈外船头朝锚点前进顶回，R=2 m，不倒车。",
+        "真实在 2 m 内 100%、3 m 内 100%，RMS=0.00 m。"
+      ]
+    },
+    {
+      "key": "cruise_speed",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.0,
+        "fly_count": 1,
+        "filter_lag_rms_m": 0.331,
+        "final_true_e": -20.46,
+        "final_true_n": 13.24,
+        "final_heading_deg": 302.92,
+        "mean_u_meas": 0.487,
+        "u_des": 0.5,
+        "final_true_dist_m": 24.37,
+        "heading_drift_deg": 0.0,
+        "east_run_m": -20.5,
+        "along_run_m": 24.4,
+        "mean_move_cmd": 50.0,
+        "mean_abs_steer": 0.0
+      },
+      "notes": [
+        "船上定速巡航: 滑条 50 直接出油门，转向固定 0，不根据对地速度改 PWM。",
+        "平均油门 50.0，平均|舵| 0.00，平均对地速度 0.49 m/s（有流时允许偏离），航向漂移 0.0°。"
+      ]
+    },
+    {
+      "key": "cruise_dir",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "ideal",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.0,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.278,
+        "final_true_e": -45.83,
+        "final_true_n": 29.67,
+        "final_heading_deg": 302.92,
+        "mean_u_meas": 0.682,
+        "u_des": 0.7,
+        "final_true_dist_m": 54.624,
+        "mean_abs_crosstrack_m": 0.0,
+        "net_along_m": 54.6,
+        "heading_rmse_deg": 0.0
+      },
+      "notes": [
+        "船上定向巡航: 锁切入艏向，速度走速度环。不贴地面直线，有侧流时位置可以漂。",
+        "沿航向净进 54.6 m，平均横向 0.00 m，航向 RMSE 0.0°。"
+      ]
+    }
+  ],
+  "real_gnss_current_wind": [
+    {
+      "key": "navigate",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 1.077,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.205,
+        "final_true_e": 13.89,
+        "final_true_n": -17.03,
+        "final_heading_deg": 167.32,
+        "mean_u_meas": 0.272,
+        "u_des": 0.7,
+        "final_true_dist_m": 21.986,
+        "time_to_arrive_s": 56.3,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 1.927,
+        "hold_rms_m": 12.83,
+        "true_in_2m_frac": 0.118,
+        "true_in_3m_frac": 0.163
+      },
+      "notes": [
+        "船上点到点: 贴航线前进，进入 WP_RADIUS=2 m 后停推力并切手动，不稳泊。有流时到点后会漂。",
+        "最近 1.08 m，到点时刻 1.93 m，结束时 21.99 m。"
+      ]
+    },
+    {
+      "key": "fixed_point",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.004,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.257,
+        "final_true_e": 1.28,
+        "final_true_n": -1.76,
+        "final_heading_deg": 323.47,
+        "mean_u_meas": -0.021,
+        "u_des": 0.7,
+        "final_true_dist_m": 2.174,
+        "time_to_arrive_s": 0.0,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 0.004,
+        "hold_rms_m": 2.037,
+        "true_in_2m_frac": 0.386,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上定点稳泊: 圈内收油，圈外船头朝锚点前进顶回，R=2 m，不倒车。",
+        "真实在 2 m 内 39%、3 m 内 100%，RMS=2.04 m。"
+      ]
+    },
+    {
+      "key": "cruise_speed",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.004,
+        "fly_count": 1,
+        "filter_lag_rms_m": 0.331,
+        "final_true_e": -16.45,
+        "final_true_n": -1.58,
+        "final_heading_deg": 272.91,
+        "mean_u_meas": 0.31,
+        "u_des": 0.5,
+        "final_true_dist_m": 16.522,
+        "heading_drift_deg": 30.01,
+        "east_run_m": -16.5,
+        "along_run_m": 13.0,
+        "mean_move_cmd": 50.0,
+        "mean_abs_steer": 0.0
+      },
+      "notes": [
+        "船上定速巡航: 滑条 50 直接出油门，转向固定 0，不根据对地速度改 PWM。",
+        "平均油门 50.0，平均|舵| 0.00，平均对地速度 0.31 m/s（有流时允许偏离），航向漂移 30.0°。"
+      ]
+    },
+    {
+      "key": "cruise_dir",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.004,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.278,
+        "final_true_e": -47.77,
+        "final_true_n": 23.55,
+        "final_heading_deg": 302.9,
+        "mean_u_meas": 0.661,
+        "u_des": 0.7,
+        "final_true_dist_m": 53.288,
+        "mean_abs_crosstrack_m": 3.12,
+        "net_along_m": 52.9,
+        "heading_rmse_deg": 0.05
+      },
+      "notes": [
+        "船上定向巡航: 锁切入艏向，速度走速度环。不贴地面直线，有侧流时位置可以漂。",
+        "沿航向净进 52.9 m，平均横向 3.12 m，航向 RMSE 0.0°。"
+      ]
+    },
+    {
+      "key": "fixed_point_decay",
+      "passed": true,
+      "metrics": {
+        "sense": "real_gnss_error",
+        "env": "current_wind",
+        "controller": "ardupilot_rover",
+        "min_true_dist_m": 0.004,
+        "fly_count": 2,
+        "filter_lag_rms_m": 0.215,
+        "final_true_e": 0.96,
+        "final_true_n": -1.41,
+        "final_heading_deg": 303.94,
+        "mean_u_meas": -0.009,
+        "u_des": 0.7,
+        "final_true_dist_m": 1.711,
+        "time_to_arrive_s": 0.0,
+        "arrived_flag": 1,
+        "hold_entry_true_dist_m": 0.004,
+        "hold_rms_m": 1.98,
+        "true_in_2m_frac": 0.496,
+        "true_in_3m_frac": 1.0
+      },
+      "notes": [
+        "船上定点稳泊: 圈内收油，圈外船头朝锚点前进顶回，R=2 m，不倒车。",
+        "真实在 2 m 内 50%、3 m 内 100%，RMS=1.98 m。"
+      ]
+    }
+  ]
+}

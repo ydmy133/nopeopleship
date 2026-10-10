@@ -1,0 +1,257 @@
+{
+  "note": "Uncertain model benchmark; speed physical fit not accepted.",
+  "baseline": {
+    "params": {
+      "p": 0.2,
+      "i": 0.2,
+      "imax": 1.0
+    },
+    "scenarios": 256,
+    "mean_iae": 6.35878795523946,
+    "worst_iae": 10.947874035769326,
+    "worst_overspeed": 0.6459160930789273,
+    "worst_hold_error": 0.1645975099270776,
+    "mean_output_variation": 204.2265625,
+    "score": 15.007523693182598
+  },
+  "ranked": [
+    {
+      "params": {
+        "p": 0.3,
+        "i": 0.15,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.27078263094997,
+      "worst_iae": 9.648681889132357,
+      "worst_overspeed": 0.5834548459586202,
+      "worst_hold_error": 0.1833696368612409,
+      "mean_output_variation": 221.40625,
+      "score": 14.035067468362644
+    },
+    {
+      "params": {
+        "p": 0.3,
+        "i": 0.1,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.921607763591638,
+      "worst_iae": 9.7969932764383,
+      "worst_overspeed": 0.5641770055071371,
+      "worst_hold_error": 0.21848367241266506,
+      "mean_output_variation": 208.296875,
+      "score": 14.52277647395067
+    },
+    {
+      "params": {
+        "p": 0.2,
+        "i": 0.15,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.55571109968805,
+      "worst_iae": 10.43516528871468,
+      "worst_overspeed": 0.6234124416775406,
+      "worst_hold_error": 0.20204546746590077,
+      "mean_output_variation": 187.9140625,
+      "score": 14.876868574206393
+    },
+    {
+      "params": {
+        "p": 0.2,
+        "i": 0.2,
+        "imax": 1.0
+      },
+      "scenarios": 256,
+      "mean_iae": 6.35878795523946,
+      "worst_iae": 10.947874035769326,
+      "worst_overspeed": 0.6459160930789273,
+      "worst_hold_error": 0.1645975099270776,
+      "mean_output_variation": 204.2265625,
+      "score": 15.007523693182598
+    },
+    {
+      "params": {
+        "p": 0.3,
+        "i": 0.08,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 7.437177359528976,
+      "worst_iae": 10.52737778731233,
+      "worst_overspeed": 0.5551662487853791,
+      "worst_hold_error": 0.220481745500267,
+      "mean_output_variation": 204.5390625,
+      "score": 15.094315404845233
+    },
+    {
+      "params": {
+        "p": 0.2,
+        "i": 0.1,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 7.172769179016208,
+      "worst_iae": 10.52669818466989,
+      "worst_overspeed": 0.6100340903200525,
+      "worst_hold_error": 0.22011832560610373,
+      "mean_output_variation": 174.125,
+      "score": 15.37844971915071
+    },
+    {
+      "params": {
+        "p": 0.4,
+        "i": 0.15,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.2596687223258884,
+      "worst_iae": 13.663595835409156,
+      "worst_overspeed": 0.6593090975490742,
+      "worst_hold_error": 0.16625907959540812,
+      "mean_output_variation": 275.609375,
+      "score": 15.585478864898462
+    },
+    {
+      "params": {
+        "p": 0.2,
+        "i": 0.08,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 7.6824075016481,
+      "worst_iae": 10.980393421797208,
+      "worst_overspeed": 0.6045222067615943,
+      "worst_hold_error": 0.22150351108572497,
+      "mean_output_variation": 168.8984375,
+      "score": 15.923708253623484
+    },
+    {
+      "params": {
+        "p": 0.4,
+        "i": 0.1,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.922647503468699,
+      "worst_iae": 14.785007113543553,
+      "worst_overspeed": 0.7207448317382928,
+      "worst_hold_error": 0.21136651942367887,
+      "mean_output_variation": 266.6015625,
+      "score": 17.087097243560336
+    },
+    {
+      "params": {
+        "p": 0.3,
+        "i": 0.05,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 8.708525559617252,
+      "worst_iae": 12.985239654725115,
+      "worst_overspeed": 0.5797906493385016,
+      "worst_hold_error": 0.22384408720402602,
+      "mean_output_variation": 199.5390625,
+      "score": 17.103479983947288
+    },
+    {
+      "params": {
+        "p": 0.2,
+        "i": 0.05,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 9.067113490790382,
+      "worst_iae": 13.431607528837278,
+      "worst_overspeed": 0.5982127184725385,
+      "worst_hold_error": 0.22982933678185138,
+      "mean_output_variation": 162.1796875,
+      "score": 17.73556218128322
+    },
+    {
+      "params": {
+        "p": 0.4,
+        "i": 0.08,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 7.398272467750611,
+      "worst_iae": 15.75535101777141,
+      "worst_overspeed": 0.7420277264165519,
+      "worst_hold_error": 0.21878607936885822,
+      "mean_output_variation": 265.1875,
+      "score": 17.969619935470412
+    },
+    {
+      "params": {
+        "p": 0.6,
+        "i": 0.15,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.264008619271861,
+      "worst_iae": 16.42294886179043,
+      "worst_overspeed": 0.9466337867818161,
+      "worst_hold_error": 0.1608396558312177,
+      "mean_output_variation": 387.234375,
+      "score": 19.01493625944811
+    },
+    {
+      "params": {
+        "p": 0.6,
+        "i": 0.1,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 6.910291176374418,
+      "worst_iae": 17.826747108922305,
+      "worst_overspeed": 0.997494140653575,
+      "worst_hold_error": 0.17616324173459913,
+      "mean_output_variation": 385.71875,
+      "score": 20.45058200469463
+    },
+    {
+      "params": {
+        "p": 0.4,
+        "i": 0.05,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 8.516744587651441,
+      "worst_iae": 17.45117028601896,
+      "worst_overspeed": 0.8790974005954905,
+      "worst_hold_error": 0.21958632338739037,
+      "mean_output_variation": 265.453125,
+      "score": 20.79795265081014
+    },
+    {
+      "params": {
+        "p": 0.6,
+        "i": 0.08,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 7.305785501832515,
+      "worst_iae": 18.409727461588453,
+      "worst_overspeed": 1.0099647409740782,
+      "worst_hold_error": 0.19118247334429328,
+      "mean_output_variation": 386.140625,
+      "score": 21.087378403890987
+    },
+    {
+      "params": {
+        "p": 0.6,
+        "i": 0.05,
+        "imax": 0.5
+      },
+      "scenarios": 256,
+      "mean_iae": 8.17682550032259,
+      "worst_iae": 19.862733588093455,
+      "worst_overspeed": 1.122088986512649,
+      "worst_hold_error": 0.1967296309416428,
+      "mean_output_variation": 393.703125,
+      "score": 23.37026208306777
+    }
+  ]
+}

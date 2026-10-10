@@ -1,0 +1,79 @@
+# Excluded upstream checkout per project owner
+/ardupilot/
+
+# Local scratch and analysis outputs
+/tmp/
+**/tmp/
+/release/
+**/release/
+
+# Build products
+build/
+build-*/
+cmake-build-*/
+**/Objects/
+**/Listings/
+**/RTE/
+*.o
+*.obj
+*.d
+*.crf
+*.axf
+*.elf
+*.map
+*.hex
+*.dfu
+*.apj
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.tlog.raw
+*.generated.h
+
+# Packages and local data
+*.zip
+*.7z
+*.rar
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+/unmanned-vessel-qt-version/data/
+/无人船上位机qt版本/data/
+
+# IDE and editor state
+.idea/
+.vscode/
+.vs/
+*.user
+*.suo
+*.autosave
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Credentials and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key
+*credentials*
+*credential*
+*secrets*
+*secret*
+*password*
+
+# Python caches
+__pycache__/
+*.py[cod]

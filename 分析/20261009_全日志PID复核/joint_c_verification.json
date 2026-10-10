@@ -1,0 +1,56 @@
+{
+  "speed": {
+    "before": {
+      "scenarios": 256,
+      "mean_iae": 6.358806449091649,
+      "worst_iae": 10.947874035769326,
+      "worst_overspeed": 0.6459160930789273,
+      "worst_hold_error": 0.1645975099270776,
+      "mean_output_variation": 204.2265625
+    },
+    "current": {
+      "scenarios": 256,
+      "mean_iae": 6.27078263094997,
+      "worst_iae": 9.648681889132357,
+      "worst_overspeed": 0.5834548459586202,
+      "worst_hold_error": 0.1833696368612409,
+      "mean_output_variation": 221.40625
+    }
+  },
+  "yaw": {
+    "original": {
+      "scenarios": 288,
+      "unsettled": 180,
+      "worst_overshoot": 111.29713837703827,
+      "worst_last30_error": 41.947413391327245,
+      "nominal": {
+        "overshoot_deg": 40.50759168815492,
+        "peak_rate_dps": 34.93389079841027,
+        "settling_s": null,
+        "last30_peak_error": 30.888418963076134
+      }
+    },
+    "current": {
+      "scenarios": 288,
+      "unsettled": 0,
+      "worst_overshoot": 10.703978326309226,
+      "worst_last30_error": 2.9059533927440384,
+      "nominal": {
+        "overshoot_deg": 8.767714996325935,
+        "peak_rate_dps": 6.505662390451335,
+        "settling_s": 60.6,
+        "last30_peak_error": 0.4314243124333075
+      }
+    }
+  },
+  "speed_equivalence": {
+    "before": {
+      "samples": 700,
+      "max_quantized_difference": 0
+    },
+    "current": {
+      "samples": 700,
+      "max_quantized_difference": 0
+    }
+  }
+}

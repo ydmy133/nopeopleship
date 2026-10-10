@@ -1,0 +1,34 @@
+--- before/boat_config.h
++++ after/boat_config.h
+@@ -27,15 +27,16 @@
+ #define BOAT_CRUISE_SPEED_MS    0.8f     /**< CRUISE_SPEED，速度环前馈 */
+ #define BOAT_CRUISE_THROTTLE    0.70f    /**< CRUISE_THROTTLE，0~1 */
+ 
+-#define BOAT_STEER_ANG_P        2.00f    /**< ATC_STR_ANG_P */
+-#define BOAT_STEER_RATE_P       0.20f
+-#define BOAT_STEER_RATE_I       0.20f
++/** 2026-10-08 低速实测转向响应拟合的首轮参数；共享自动转向环，待实船复测。 */
++#define BOAT_STEER_ANG_P        0.25f    /**< ATC_STR_ANG_P，降低航向外环追赶速度 */
++#define BOAT_STEER_RATE_P       0.30f    /**< 增强对当前角速度的反馈 */
++#define BOAT_STEER_RATE_I       0.05f    /**< 减少持续摆动时的积分累积 */
+ #define BOAT_STEER_RATE_D       0.00f
+ #define BOAT_STEER_RATE_FF      0.20f
+-#define BOAT_STEER_RATE_IMAX    1.00f
++#define BOAT_STEER_RATE_IMAX    0.15f    /**< 积分输出上限 15% */
+ #define BOAT_STEER_RATE_FILT    10.0f
+-#define BOAT_STEER_RATE_MAX_DPS 40.0f    /**< 上游 120，船体改小避免舵饱和 */
+-#define BOAT_STEER_ACCEL_DPS2   30.0f
++#define BOAT_STEER_RATE_MAX_DPS 10.0f    /**< 首轮实船测试目标角速度上限 */
++#define BOAT_STEER_ACCEL_DPS2   15.0f    /**< 目标角速度变化斜坡 */
+ 
+ #define BOAT_THR_SPEED_P        0.20f    /**< ATC_SPEED_P */
+ #define BOAT_THR_SPEED_I        0.20f
+@@ -45,7 +46,7 @@
+ #define BOAT_TURN_MAX_G         0.15f    /**< ATC_TURN_MAX_G，上游 0.6 对慢船过大 */
+ #define BOAT_STEER_SPEED_MIN    0.30f    /**< 转弯率 a/v 的最小速度，上游 1.0 */
+ #define BOAT_STOP_SPEED_MS      0.10f
+-#define BOAT_ATT_TIMEOUT_MS     200u
++#define BOAT_ATT_TIMEOUT_MS     500u    /**< 容纳正常轮询抖动，避免稍超 200 ms 就清积分 */
+ #define BOAT_POS_TIMEOUT_MS     250u
+ 
+ #define BOAT_PSC_POS_P          0.20f    /**< PSC_POS_P */

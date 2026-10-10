@@ -1,0 +1,20 @@
+build/
+build-*/
+cmake-build-*/
+.idea/
+.vscode/
+CMakeLists.txt.user
+CMakeUserPresets.json
+*.user
+*.autosave
+.DS_Store
+Thumbs.db
+*.qmlc
+*.jsc
+/data/
+*.db
+*.db-journal
+
+# Generated installers and local logs
+/release/
+*.log

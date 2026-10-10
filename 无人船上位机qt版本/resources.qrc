@@ -1,0 +1,64 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Main.qml</file>
+        <file>qml/SplashView.qml</file>
+        <file>qml/HudView.qml</file>
+        <file>qml/SettingsView.qml</file>
+        <file>qml/Toast.qml</file>
+        <file>qml/HudTheme.js</file>
+        <file>qml/items/HeadingBar.qml</file>
+        <file>qml/items/HudIcon.qml</file>
+        <file>qml/items/GlassCard.qml</file>
+        <file>qml/items/GlassPanel.qml</file>
+        <file>qml/items/GlassSurface.qml</file>
+        <file>qml/items/DarkButton.qml</file>
+        <file>qml/items/DarkTextField.qml</file>
+        <file>qml/items/DarkComboBox.qml</file>
+        <file>qml/items/ControlPad.qml</file>
+        <file>qml/items/PadArrow.qml</file>
+        <file>qml/items/CompassRose.qml</file>
+        <file>qml/items/TelemetryHud.qml</file>
+        <file>qml/items/MapBackground.qml</file>
+        <file>qml/items/BoatMarker.qml</file>
+        <file>qml/dialogs/PresetDialog.qml</file>
+        <file>qml/dialogs/ReturnDialog.qml</file>
+        <file>qml/dialogs/CruiseDialog.qml</file>
+        <file>qml/dialogs/AlertDialog.qml</file>
+        <file alias="equ/alert.png">resources/equ/alert.png</file>
+        <file alias="equ/Ascend.png">resources/equ/Ascend.png</file>
+        <file alias="equ/auto-holding.png">resources/equ/auto-holding.png</file>
+        <file alias="equ/back.svg">resources/equ/back.svg</file>
+        <file alias="equ/background.png">resources/equ/background.png</file>
+        <file alias="equ/calibrate.svg">resources/equ/calibrate.svg</file>
+        <file alias="equ/descend.png">resources/equ/descend.png</file>
+        <file alias="equ/folder.png">resources/equ/folder.png</file>
+        <file alias="equ/forward.png">resources/equ/forward.png</file>
+        <file alias="equ/left.png">resources/equ/left.png</file>
+        <file alias="equ/left2.png">resources/equ/left2.png</file>
+        <file alias="equ/Line.png">resources/equ/Line.png</file>
+        <file alias="equ/Line2.png">resources/equ/Line2.png</file>
+        <file alias="equ/Line3.png">resources/equ/Line3.png</file>
+        <file alias="equ/Line4.svg">resources/equ/Line4.svg</file>
+        <file alias="equ/Line5.png">resources/equ/Line5.png</file>
+        <file alias="equ/Line6.png">resources/equ/Line6.png</file>
+        <file alias="equ/Line7.png">resources/equ/Line7.png</file>
+        <file alias="equ/Line8.png">resources/equ/Line8.png</file>
+        <file alias="equ/Line9.png">resources/equ/Line9.png</file>
+        <file alias="equ/picture-in-picture.png">resources/equ/picture-in-picture.png</file>
+        <file alias="equ/positioning.png">resources/equ/positioning.png</file>
+        <file alias="equ/record_ideo.png">resources/equ/record_ideo.png</file>
+        <file alias="equ/right.png">resources/equ/right.png</file>
+        <file alias="equ/right2.png">resources/equ/right2.png</file>
+        <file alias="equ/settings.png">resources/equ/settings.png</file>
+        <file alias="equ/state1.png">resources/equ/state1.png</file>
+        <file alias="equ/state1_1.png">resources/equ/state1_1.png</file>
+        <file alias="equ/state2.png">resources/equ/state2.png</file>
+        <file alias="equ/state2_1.png">resources/equ/state2_1.png</file>
+        <file alias="equ/stop.png">resources/equ/stop.png</file>
+        <file alias="equ/switch.png">resources/equ/switch.png</file>
+        <file alias="equ/take_photo.png">resources/equ/take_photo.png</file>
+        <file alias="equ/turn_left.png">resources/equ/turn_left.png</file>
+        <file alias="equ/turn_right.png">resources/equ/turn_right.png</file>
+        <file alias="equ/up.png">resources/equ/up.png</file>
+    </qresource>
+</RCC>

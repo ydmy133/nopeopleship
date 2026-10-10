@@ -1,0 +1,10 @@
+{
+  "angle_p": 0.25,
+  "rate_p": 0.3,
+  "rate_i": 0.05,
+  "ff": 0.2,
+  "imax": 0.15,
+  "max_rate": 10,
+  "accel": 15,
+  "timeout_ms": 500
+}

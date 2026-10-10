@@ -1,0 +1,14 @@
+{
+  "E:\\无人船\\STM32F405RGT6\\User\\boat\\boat_config.h": {
+    "sha256": "1c1d82710d6af1630209660c330bc7e815c799b1f904a323f157b8d0858811f7",
+    "bytes": 3454
+  },
+  "E:\\无人船\\STM32F405RGT6\\MDK-ARM\\STM32F405RGT6\\STM32F405RGT6.hex": {
+    "sha256": "a51cfa9149c39ff1fc98c4234897779f3e8e68ee398df9d951b2507a72adfaee",
+    "bytes": 118700
+  },
+  "E:\\无人船\\STM32F405RGT6\\MDK-ARM\\joint_pid_20261009_build.log": {
+    "sha256": "b981b85446365397ca31186fe8801f40dfe6dd6ce47e6f696e424055d13ab2e2",
+    "bytes": 511
+  }
+}

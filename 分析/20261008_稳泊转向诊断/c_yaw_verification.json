@@ -1,0 +1,131 @@
+{
+  "python_c_equivalence": {
+    "baseline": {
+      "samples": 600,
+      "max_quantized_difference": 0
+    },
+    "current": {
+      "samples": 600,
+      "max_quantized_difference": 0
+    }
+  },
+  "nominal_model": {
+    "tau": 4,
+    "gain": 2.7290727125950665,
+    "deadband": 2,
+    "delay": 0,
+    "bias": 0.9441485965785138
+  },
+  "nominal": {
+    "baseline": {
+      "overshoot_deg": 41.18824110905601,
+      "peak_rate_dps": 34.94213879937596,
+      "settling_s": null,
+      "last30_peak_error": 30.288703792643872
+    },
+    "current": {
+      "overshoot_deg": 5.2606519859810135,
+      "peak_rate_dps": 8.101013894196575,
+      "settling_s": 34.6,
+      "last30_peak_error": 0.05223261426817771
+    }
+  },
+  "robustness": {
+    "baseline": {
+      "scenarios": 216,
+      "worst_overshoot": 66.20981268016584,
+      "worst_last30_error": 50.09148239150815,
+      "unsettled": 205
+    },
+    "current": {
+      "scenarios": 216,
+      "worst_overshoot": 7.267260088678199,
+      "worst_last30_error": 1.419999750204994,
+      "unsettled": 0
+    }
+  },
+  "small_steps": {
+    "baseline": {
+      "-45": {
+        "overshoot_deg": 32.54405292547065,
+        "peak_rate_dps": 24.934966749823023,
+        "settling_s": null,
+        "last30_peak_error": 32.95578458106294
+      },
+      "-10": {
+        "overshoot_deg": 7.859419180148141,
+        "peak_rate_dps": 7.688491754767827,
+        "settling_s": null,
+        "last30_peak_error": 7.877540971615048
+      },
+      "10": {
+        "overshoot_deg": 7.915224446773543,
+        "peak_rate_dps": 7.753821619490819,
+        "settling_s": null,
+        "last30_peak_error": 7.878473375727594
+      },
+      "45": {
+        "overshoot_deg": 32.089886725143614,
+        "peak_rate_dps": 24.557821408924106,
+        "settling_s": null,
+        "last30_peak_error": 31.369740303596757
+      }
+    },
+    "current": {
+      "-45": {
+        "overshoot_deg": 0.004937629886150319,
+        "peak_rate_dps": 5.833523559750652,
+        "settling_s": 17.0,
+        "last30_peak_error": 0.013314496596507297
+      },
+      "-10": {
+        "overshoot_deg": 0.0040612484612676525,
+        "peak_rate_dps": 0.6211071004995004,
+        "settling_s": 12.0,
+        "last30_peak_error": 0.013145628019515243
+      },
+      "10": {
+        "overshoot_deg": 8.409228482225519,
+        "peak_rate_dps": 0.9409095352792185,
+        "settling_s": 32.4,
+        "last30_peak_error": 0.0386409212941885
+      },
+      "45": {
+        "overshoot_deg": 6.39052209129126,
+        "peak_rate_dps": 6.278548847994015,
+        "settling_s": 22.6,
+        "last30_peak_error": 0.022760481551159728
+      }
+    }
+  },
+  "slow_cadence": {
+    "baseline": {
+      "0.21": {
+        "overshoot_deg": 90.62313584656323,
+        "peak_rate_dps": 23.46018446932498,
+        "settling_s": 95.97,
+        "last30_peak_error": 5.747960008614712
+      },
+      "0.3": {
+        "overshoot_deg": 111.5278779282865,
+        "peak_rate_dps": 30.159462877857983,
+        "settling_s": null,
+        "last30_peak_error": 24.532115206065896
+      }
+    },
+    "current": {
+      "0.21": {
+        "overshoot_deg": 5.384967361056653,
+        "peak_rate_dps": 8.180522093883857,
+        "settling_s": 33.81,
+        "last30_peak_error": 0.07513491673526573
+      },
+      "0.3": {
+        "overshoot_deg": 5.370520835789193,
+        "peak_rate_dps": 8.200903884991591,
+        "settling_s": 33.0,
+        "last30_peak_error": 0.11459969656897329
+      }
+    }
+  }
+}

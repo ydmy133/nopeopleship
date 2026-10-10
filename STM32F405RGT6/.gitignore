@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.venv/
+venv/
+
+# Editor / temp
+*.bkp
+.~*
+.$*.bkp
+*.tmp
+*.swp
+Thumbs.db
+Desktop.ini
+
+# Keil build artifacts (keep project files)
+MDK-ARM/RTE/
+MDK-ARM/*.o
+MDK-ARM/*.d
+MDK-ARM/*.crf
+MDK-ARM/*.axf
+MDK-ARM/*.htm
+MDK-ARM/*.lnp
+MDK-ARM/*.sct
+MDK-ARM/*_sct.Bak
+MDK-ARM/*.dep
+MDK-ARM/Objects/
+MDK-ARM/Listings/

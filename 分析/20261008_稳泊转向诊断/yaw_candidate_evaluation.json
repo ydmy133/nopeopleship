@@ -1,0 +1,278 @@
+{
+  "nominal_model": {
+    "tau": 4,
+    "gain": 2.7290727125950665,
+    "deadband": 2,
+    "delay": 0,
+    "bias": 0.9441485965785138
+  },
+  "baseline_params": {
+    "angle_p": 2,
+    "rate_p": 0.2,
+    "rate_i": 0.2,
+    "ff": 0.2,
+    "imax": 1,
+    "max_rate": 40,
+    "accel": 30
+  },
+  "candidates": [
+    [
+      28.878909535832943,
+      {
+        "angle_p": 0.25,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 20
+      },
+      {
+        "overshoot_deg": 4.18975250302725,
+        "peak_rate_dps": 12.632191637751502,
+        "settling_s": 20.400000000000002,
+        "crossings": 11,
+        "final_error_deg": -0.001521301424673993,
+        "last30_peak_error": 0.019880905955687922
+      }
+    ],
+    [
+      29.058659498097768,
+      {
+        "angle_p": 0.25,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 15
+      },
+      {
+        "overshoot_deg": 4.235728156148582,
+        "peak_rate_dps": 12.632703883684899,
+        "settling_s": 20.5,
+        "crossings": 15,
+        "final_error_deg": -0.0008624158137706672,
+        "last30_peak_error": 0.017440637160120787
+      }
+    ],
+    [
+      29.698224149207473,
+      {
+        "angle_p": 0.25,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 10
+      },
+      {
+        "overshoot_deg": 4.348713185446059,
+        "peak_rate_dps": 12.632021416858898,
+        "settling_s": 20.900000000000002,
+        "crossings": 11,
+        "final_error_deg": -0.0015067552289735886,
+        "last30_peak_error": 0.020159555663070705
+      }
+    ],
+    [
+      31.574196718894026,
+      {
+        "angle_p": 0.2,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 20
+      },
+      {
+        "overshoot_deg": 4.957879207009711,
+        "peak_rate_dps": 12.632191637751502,
+        "settling_s": 21.400000000000002,
+        "crossings": 1,
+        "final_error_deg": -0.00502016452091425,
+        "last30_peak_error": 0.05168766097492039
+      }
+    ],
+    [
+      31.912761005697934,
+      {
+        "angle_p": 0.2,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 10
+      },
+      {
+        "overshoot_deg": 4.926985551127132,
+        "peak_rate_dps": 12.632021416858898,
+        "settling_s": 21.8,
+        "crossings": 1,
+        "final_error_deg": -0.0035177392695970866,
+        "last30_peak_error": 0.05175798068873405
+      }
+    ],
+    [
+      33.3054269315398,
+      {
+        "angle_p": 0.35,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 20
+      },
+      {
+        "overshoot_deg": 5.731287642393568,
+        "peak_rate_dps": 12.632191637751502,
+        "settling_s": 21.8,
+        "crossings": 35,
+        "final_error_deg": -0.001390699807643614,
+        "last30_peak_error": 0.008570329350533257
+      }
+    ],
+    [
+      33.62783825223593,
+      {
+        "angle_p": 0.35,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 15
+      },
+      {
+        "overshoot_deg": 5.792492804682439,
+        "peak_rate_dps": 12.632703883684899,
+        "settling_s": 22.0,
+        "crossings": 43,
+        "final_error_deg": -0.001964658536905972,
+        "last30_peak_error": 0.008570528574210812
+      }
+    ],
+    [
+      33.8813014954237,
+      {
+        "angle_p": 0.35,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 10
+      },
+      {
+        "overshoot_deg": 5.768466939157463,
+        "peak_rate_dps": 12.632637143573072,
+        "settling_s": 22.3,
+        "crossings": 44,
+        "final_error_deg": 9.514670142607429e-05,
+        "last30_peak_error": 0.00887352342175518
+      }
+    ]
+  ],
+  "robustness": [
+    {
+      "label": "old",
+      "params": {
+        "angle_p": 2,
+        "rate_p": 0.2,
+        "rate_i": 0.2,
+        "ff": 0.2,
+        "imax": 1,
+        "max_rate": 40,
+        "accel": 30
+      },
+      "scenarios": 216,
+      "worst_overshoot": 66.20981268016584,
+      "worst_last30_error": 50.09148239150815,
+      "unsettled": 205
+    },
+    {
+      "label": "candidate1",
+      "params": {
+        "angle_p": 0.25,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 20
+      },
+      "scenarios": 216,
+      "worst_overshoot": 7.65826116195143,
+      "worst_last30_error": 2.959989428098538,
+      "unsettled": 0
+    },
+    {
+      "label": "candidate2",
+      "params": {
+        "angle_p": 0.25,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 15
+      },
+      "scenarios": 216,
+      "worst_overshoot": 7.67392317183149,
+      "worst_last30_error": 2.9599899549832287,
+      "unsettled": 0
+    },
+    {
+      "label": "candidate3",
+      "params": {
+        "angle_p": 0.25,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 10
+      },
+      "scenarios": 216,
+      "worst_overshoot": 7.66300752182579,
+      "worst_last30_error": 2.959989214814385,
+      "unsettled": 0
+    },
+    {
+      "label": "candidate4",
+      "params": {
+        "angle_p": 0.2,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 20
+      },
+      "scenarios": 216,
+      "worst_overshoot": 8.339612579607063,
+      "worst_last30_error": 1.3700001577827265,
+      "unsettled": 0
+    },
+    {
+      "label": "candidate5",
+      "params": {
+        "angle_p": 0.2,
+        "rate_p": 0.3,
+        "rate_i": 0.05,
+        "ff": 0.2,
+        "imax": 0.15,
+        "max_rate": 15,
+        "accel": 10
+      },
+      "scenarios": 216,
+      "worst_overshoot": 8.23881608980733,
+      "worst_last30_error": 1.68000016568908,
+      "unsettled": 0
+    }
+  ]
+}
