@@ -1,0 +1,3 @@
+FreeRTOS-Kernel V11.2.0
+https://github.com/FreeRTOS/FreeRTOS-Kernel/releases/tag/V11.2.0
+Unmodified kernel and GCC/ARM_CM4F port. Static allocation only.

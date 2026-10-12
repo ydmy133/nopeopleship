@@ -1,21 +1,29 @@
+/**
+ * @file i2c.c
+ * @brief I2C3 基础外设与引脚初始化。
+ *
+ * 当前 GNSS/航向/BMS 使用 UART 查询，此文件不承担它们的数据采集。
+ * 保留现有 I2C 硬件配置作为基础工程的一部分。
+ */
+
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    i2c.c
-  * @brief   This file provides code for the configuration
-  *          of the I2C instances.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    i2c.c
+ * @brief   This file provides code for the configuration
+ *          of the I2C instances.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "i2c.h"
@@ -27,6 +35,9 @@
 I2C_HandleTypeDef hi2c3;
 
 /* I2C3 init function */
+/**
+ * @brief 保留 I2C3 基础初始化，当前串口传感器采集不使用本接口。
+ */
 void MX_I2C3_Init(void)
 {
 
@@ -69,9 +80,9 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* i2cHandle)
     __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**I2C3 GPIO Configuration
-    PC9     ------> I2C3_SDA
-    PA8     ------> I2C3_SCL
-    */
+     * PC9     ------> I2C3_SDA
+     * PA8     ------> I2C3_SCL
+     */
     GPIO_InitStruct.Pin = GPIO_PIN_9;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -106,9 +117,9 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* i2cHandle)
     __HAL_RCC_I2C3_CLK_DISABLE();
 
     /**I2C3 GPIO Configuration
-    PC9     ------> I2C3_SDA
-    PA8     ------> I2C3_SCL
-    */
+     * PC9     ------> I2C3_SDA
+     * PA8     ------> I2C3_SCL
+     */
     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_9);
 
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_8);

@@ -39,7 +39,7 @@ fig.update_layout(height=1350, title='全日志 PID 复核：模型仿真对比�
 fig.write_html(ROOT / '速度与航向PID对比.html', include_plotlyjs=True)
 hexfile = PROJECT / 'STM32F405RGT6/MDK-ARM/STM32F405RGT6/STM32F405RGT6.hex'
 buildlog = PROJECT / 'STM32F405RGT6/MDK-ARM/joint_pid_20261009_build.log'
-config = PROJECT / 'STM32F405RGT6/User/boat/boat_config.h'
+config = PROJECT / 'STM32F405RGT6/App/Control/Boat/boat_config.h'
 buildtext = buildlog.read_text(encoding='utf-8', errors='replace')
 assert '0 Error(s), 0 Warning(s)' in buildtext
 metadata = {str(p): {'sha256': hashlib.sha256(p.read_bytes()).hexdigest(), 'bytes': p.stat().st_size} for p in [config, hexfile, buildlog]}

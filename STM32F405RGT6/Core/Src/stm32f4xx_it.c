@@ -1,20 +1,28 @@
+/**
+ * @file stm32f4xx_it.c
+ * @brief 异常与外设 IRQ 转发入口。
+ *
+ * SVC/PendSV/SysTick 由 FreeRTOS ARM_CM4F 端口提供，不能在这里重复实现。
+ * UART 转发板级统一处理，DMA1 Stream1/5 分别服务航向/GNSS，TIM6 HAL 时基入口在独立文件中。
+ */
+
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    stm32f4xx_it.c
-  * @brief   Interrupt Service Routines.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32f4xx_it.c
+ * @brief   Interrupt Service Routines.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -23,7 +31,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "led.h"
-#include "protocol.h"
+#include "board_uart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,10 +77,10 @@ extern UART_HandleTypeDef huart6;
 
 /******************************************************************************/
 /*           Cortex-M4 Processor Interruption and Exception Handlers          */
-/******************************************************************************/
-/**
-  * @brief This function handles Non maskable interrupt.
-  */
+/*****************************************************************************
+ *
+ * @details This function handles Non maskable interrupt.
+ */
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
@@ -86,8 +94,8 @@ void NMI_Handler(void)
 }
 
 /**
-  * @brief This function handles Hard fault interrupt.
-  */
+ * @brief This function handles Hard fault interrupt.
+ */
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
@@ -101,8 +109,8 @@ void HardFault_Handler(void)
 }
 
 /**
-  * @brief This function handles Memory management fault.
-  */
+ * @brief This function handles Memory management fault.
+ */
 void MemManage_Handler(void)
 {
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
@@ -116,8 +124,8 @@ void MemManage_Handler(void)
 }
 
 /**
-  * @brief This function handles Pre-fetch fault, memory access fault.
-  */
+ * @brief This function handles Pre-fetch fault, memory access fault.
+ */
 void BusFault_Handler(void)
 {
   /* USER CODE BEGIN BusFault_IRQn 0 */
@@ -131,8 +139,8 @@ void BusFault_Handler(void)
 }
 
 /**
-  * @brief This function handles Undefined instruction or illegal state.
-  */
+ * @brief This function handles Undefined instruction or illegal state.
+ */
 void UsageFault_Handler(void)
 {
   /* USER CODE BEGIN UsageFault_IRQn 0 */
@@ -146,21 +154,10 @@ void UsageFault_Handler(void)
 }
 
 /**
-  * @brief This function handles System service call via SWI instruction.
-  */
-void SVC_Handler(void)
-{
-  /* USER CODE BEGIN SVCall_IRQn 0 */
-
-  /* USER CODE END SVCall_IRQn 0 */
-  /* USER CODE BEGIN SVCall_IRQn 1 */
-
-  /* USER CODE END SVCall_IRQn 1 */
-}
-
-/**
-  * @brief This function handles Debug monitor.
-  */
+ * @brief This function handles System service call via SWI instruction.
+ *
+ * @details This function handles Debug monitor.
+ */
 void DebugMon_Handler(void)
 {
   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
@@ -172,119 +169,114 @@ void DebugMon_Handler(void)
 }
 
 /**
-  * @brief This function handles Pendable request for system service.
-  */
-void PendSV_Handler(void)
-{
-  /* USER CODE BEGIN PendSV_IRQn 0 */
-
-  /* USER CODE END PendSV_IRQn 0 */
-  /* USER CODE BEGIN PendSV_IRQn 1 */
-
-  /* USER CODE END PendSV_IRQn 1 */
-}
-
-/**
-  * @brief This function handles System tick timer.
-  */
-void SysTick_Handler(void)
-{
-  /* USER CODE BEGIN SysTick_IRQn 0 */
-
-  /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-  /* USER CODE BEGIN SysTick_IRQn 1 */
-  /* LED闪烁回调函数 */
-   LED_Blink_Callback();
-  /* USER CODE END SysTick_IRQn 1 */
-}
-
-/******************************************************************************/
+ * @brief This function handles Pendable request for system service.
+ *
+ * @details This function handles System tick timer.
+ *
+ ***************************************************************************
+ */
 /* STM32F4xx Peripheral Interrupt Handlers                                    */
 /* Add here the Interrupt Handlers for the used peripherals.                  */
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
-/******************************************************************************/
-
-/**
-  * @brief This function handles USART1 global interrupt.
-  */
+/*****************************************************************************
+ *
+ * @details This function handles USART1 global interrupt.
+ *
+ * @details 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
 
   /* USER CODE END USART1_IRQn 0 */
-  HAL_UART_IRQHandler(&huart1);
+  BoardUart_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
 
   /* USER CODE END USART1_IRQn 1 */
 }
 
 /**
-  * @brief This function handles USART2 global interrupt.
-  */
+ * @brief This function handles USART2 global interrupt.
+ *
+ * @details 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
-  /* USART2 NVIC is disabled: GNSS polls SR/DR in the main loop. */
+  /* RX DMA owns DR; HAL dispatches IDLE/TX/error events. */
   /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(&huart2);
+  BoardUart_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
 
   /* USER CODE END USART2_IRQn 1 */
 }
 
 /**
-  * @brief This function handles USART3 global interrupt.
-  */
+ * @brief This function handles USART3 global interrupt.
+ *
+ * @details 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
 
   /* USER CODE END USART3_IRQn 0 */
-  HAL_UART_IRQHandler(&huart3);
+  BoardUart_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
 
   /* USER CODE END USART3_IRQn 1 */
 }
 
 /**
-  * @brief This function handles UART4 global interrupt.
-  */
+ * @brief This function handles UART4 global interrupt.
+ *
+ * @details 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void UART4_IRQHandler(void)
 {
   /* USER CODE BEGIN UART4_IRQn 0 */
 
   /* USER CODE END UART4_IRQn 0 */
-  HAL_UART_IRQHandler(&huart4);
+  BoardUart_IRQHandler(&huart4);
   /* USER CODE BEGIN UART4_IRQn 1 */
 
   /* USER CODE END UART4_IRQn 1 */
 }
 
 /**
-  * @brief This function handles UART5 global interrupt.
-  */
+ * @brief This function handles UART5 global interrupt.
+ *
+ * @details 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void UART5_IRQHandler(void)
 {
   /* USER CODE BEGIN UART5_IRQn 0 */
 
   /* USER CODE END UART5_IRQn 0 */
-  HAL_UART_IRQHandler(&huart5);
+  BoardUart_IRQHandler(&huart5);
   /* USER CODE BEGIN UART5_IRQn 1 */
 
   /* USER CODE END UART5_IRQn 1 */
 }
 
 /**
-  * @brief This function handles USART6 global interrupt.
-  */
+ * @brief This function handles USART6 global interrupt.
+ *
+ * @details 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART6_IRQHandler(void)
 {
   /* USER CODE BEGIN USART6_IRQn 0 */
 
   /* USER CODE END USART6_IRQn 0 */
-  HAL_UART_IRQHandler(&huart6);
+  BoardUart_IRQHandler(&huart6);
   /* USER CODE BEGIN USART6_IRQn 1 */
 
   /* USER CODE END USART6_IRQn 1 */
@@ -297,12 +289,16 @@ void USART6_IRQHandler(void)
  * @param  Size 接收到的数据长度
  * @retval None
  */
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-{
-    /* 判断是否为通讯使用的UART实例，避免处理其他串口的中断 */
-    if (huart->Instance == PROTOCOL_UART_INSTANCE) {
-        /* 调用通讯模块的接收处理函数 */
-        Protocol_UART_RxEventCallback(Size);
-    }
-}
+
 /* USER CODE END 1 */
+
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
+void DMA1_Stream1_IRQHandler(void) {BoardUart_DMA1Stream1IRQ();}
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
+void DMA1_Stream5_IRQHandler(void) {BoardUart_DMA1Stream5IRQ();}

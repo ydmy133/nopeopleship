@@ -13,7 +13,7 @@ from speed_bench import OLD, SpeedController, simulate
 sys.path.insert(0,str(ROOT.parent/'20261008_稳泊转向诊断'))
 from verify_c_yaw import run as run_yaw
 
-SOURCE=Path('E:/无人船/STM32F405RGT6/User/boat')
+SOURCE=Path('E:/无人船/STM32F405RGT6/App/Control/Boat')
 VCVARS='C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvars64.bat'
 HARNESS=r'''
 #include "boat_attitude.h"

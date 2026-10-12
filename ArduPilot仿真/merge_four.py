@@ -130,7 +130,7 @@ HTML = r"""<!DOCTYPE html>
 <body>
 <header>
   <h1>ArduPilot 无人船四仿真对照</h1>
-  <p class="sub">控制律与 STM32F405RGT6/User/boat 同步。上排传感全准，下排湖测 GNSS 残差回放；左列无风无流，右列有风有流。点到点进入 2 m 圈后停桨回手动；定点稳泊只前进不倒车；定速巡航是开环油门；定向只锁艏向、不贴地面直线。点功能页后四格同步播放。</p>
+  <p class="sub">控制律与 STM32F405RGT6/App/Control/Boat 同步。上排传感全准，下排湖测 GNSS 残差回放；左列无风无流，右列有风有流。点到点进入 2 m 圈后停桨回手动；定点稳泊只前进不倒车；定速巡航是开环油门；定向只锁艏向、不贴地面直线。点功能页后四格同步播放。</p>
   <p class="links">原始单页：
     <a href="传感器全准的仿真/usv_sim_perfect_ideal.html">全准无风流</a>
     <a href="传感器全准的仿真/usv_sim_perfect_current_wind.html">全准有风流</a>

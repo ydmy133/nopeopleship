@@ -8,7 +8,7 @@ import subprocess
 from pathlib import Path
 from evaluate_yaw import ROOT, Controller, OLD, effective
 
-SOURCE=Path('E:/无人船/STM32F405RGT6/User/boat')
+SOURCE=Path('E:/无人船/STM32F405RGT6/App/Control/Boat')
 VCVARS=Path('C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvars64.bat')
 HARNESS=r'''
 #include "boat_attitude.h"

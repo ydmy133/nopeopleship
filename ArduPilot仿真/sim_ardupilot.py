@@ -430,7 +430,7 @@ def patch_html(path: Path, sense: SenseFlags, env: EnvFlags) -> None:
     text = re.sub(
         r"控制律来自现有.*东-北平面（米）。",
         (
-            "控制律与 <code>STM32F405RGT6/User/boat</code> 同步："
+            "控制律与 <code>STM32F405RGT6/App/Control/Boat</code> 同步："
             "点到点到 2 m 圈后停桨回手动，定点稳泊只前进不倒车，定速巡航开环油门，定向只锁艏向。"
             "船体/风流/湖测残差沿用原仿真场景。"
             "传感：<b>%s</b>。环境：<b>%s</b>。"
@@ -548,8 +548,8 @@ def main() -> int:
         all_runs[rel] = results
 
     summary = {
-        "controller": "STM32F405RGT6 User/boat synced",
-        "source": r"E:\无人船\STM32F405RGT6\User\boat",
+        "controller": "STM32F405RGT6 App/Control/Boat synced",
+        "source": r"E:\无人船\STM32F405RGT6\App\Control\Boat",
         "hull_from": r"E:\zhudian\STM32F405RGT6\sim",
         "origin_sim": {"lat": ORIGIN_LAT, "lon": ORIGIN_LON},
         "origin_real": raw.get("origin"),

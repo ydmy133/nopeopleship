@@ -1,20 +1,28 @@
+/**
+ * @file stm32f4xx_it.h
+ * @brief 异常与外设 IRQ 转发入口。
+ *
+ * SVC/PendSV/SysTick 由 FreeRTOS ARM_CM4F 端口提供，不能在这里重复实现。
+ * UART 转发板级统一处理，DMA1 Stream1/5 分别服务航向/GNSS，TIM6 HAL 时基入口在独立文件中。
+ */
+
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file    stm32f4xx_it.h
-  * @brief   This file contains the headers of the interrupt handlers.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2026 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file    stm32f4xx_it.h
+ * @brief   This file contains the headers of the interrupt handlers.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2026 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -55,11 +63,35 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART1_IRQHandler(void);
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART2_IRQHandler(void);
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART3_IRQHandler(void);
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void UART4_IRQHandler(void);
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void UART5_IRQHandler(void);
+/**
+ * @brief 中断上下文入口，仅转发到对应板级/HAL 事件处理；
+ * 传感器协议与控制计算由任务执行。
+ */
 void USART6_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 

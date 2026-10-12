@@ -1,3 +1,5 @@
+> 当前工程已迁移为 FreeRTOS + 循环 DMA，固定 USART2/USART3 9600。本文以下为历史故障调查；当前接口及恢复规范见 [传感器说明](../sensors/README.md)。
+
 # GNSS 采集模块（v6 严格轮询接收）
 
 ## 本次修正

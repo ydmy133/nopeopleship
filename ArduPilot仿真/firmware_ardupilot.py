@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""与 STM32F405RGT6/User/boat 同步的无人船控制律。
+"""与 STM32F405RGT6/App/Control/Boat 同步的无人船控制律。
 
 结构来自 ArduPilot Rover，参数和产品改动以船上固件为准
-（User/boat/boat_config.h、boat_modes.c、boat_app.c）：
+（App/Control/Boat/boat_config.h、boat_modes.c、boat_app.c）：
 
   点到点 navigate     航线贴线，进入 2 m 圈后停推力，不切稳泊
   定点稳泊 fixed_point Loiter，LOIT_TYPE=1，只前进不倒车

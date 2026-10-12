@@ -1,0 +1,21 @@
+{
+  "compiled_sources": 71,
+  "algorithm_token_match_files": 19,
+  "algorithm_directory": "App/Control/Boat",
+  "armclang": "6.24",
+  "freertos": "11.2.0",
+  "errors": 0,
+  "warnings": 0,
+  "code_bytes": 54656,
+  "ro_bytes": 2048,
+  "rw_bytes": 44,
+  "zi_bytes": 57428,
+  "ram_bytes": 57472,
+  "ordinary_sram_symbols": {
+    "ports": "0x20006430",
+    "dma_gnss": "0x200048a8",
+    "dma_heading": "0x20004908",
+    "arena": "0x200001f0"
+  },
+  "hardware_validation": "not performed"
+}

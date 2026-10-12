@@ -28,3 +28,8 @@ MDK-ARM/*_sct.Bak
 MDK-ARM/*.dep
 MDK-ARM/Objects/
 MDK-ARM/Listings/
+
+# RTOS build logs and symbol dumps (summary is recorded under docs/validation)
+MDK-ARM/freertos_build*.log
+docs/validation/*_build.log
+docs/validation/link_symbols.txt
